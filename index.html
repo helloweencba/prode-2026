@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode Mundial 2026 - Dohko Solutions</title>
+    <title>Prode Mundial 2026 - Edición Total</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .active-tab { background-color: #1e3a8a !important; color: white !important; border-bottom: 4px solid #facc15; }
         .match-card { transition: all 0.3s; border-left: 6px solid #1e3a8a; }
-        .match-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -16,84 +15,78 @@
 <body class="bg-slate-50 min-h-screen">
     <div class="max-w-5xl mx-auto p-4">
         <header class="text-center py-6 bg-blue-900 text-white rounded-b-3xl shadow-lg mb-8">
-            <h1 class="text-3xl font-black italic tracking-tighter">PRODE MUNDIAL 2026</h1>
-            <p class="text-blue-200 text-sm font-bold tracking-widest">USA | MÉXICO | CANADÁ</p>
+            <h1 class="text-3xl font-black italic italic">PRODE 2026 🏆</h1>
+            <p class="text-blue-200 text-sm font-bold tracking-widest uppercase">El fixture de los 12 grupos</p>
         </header>
 
         <nav class="flex justify-center space-x-4 mb-8">
-            <button onclick="switchView('grupos')" id="btn-grupos" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow active-tab">PRONÓSTICOS</button>
-            <button onclick="switchView('ranking')" id="btn-ranking" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow text-sm">RANKING GLOBAL</button>
+            <button onclick="switchView('grupos')" id="btn-grupos" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow active-tab uppercase text-xs">Pronósticos</button>
+            <button onclick="switchView('ranking')" id="btn-ranking" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow uppercase text-xs">Ranking</button>
         </nav>
 
         <div id="view-grupos">
-            <div class="bg-white p-6 rounded-2xl shadow-sm mb-6">
-                <label class="block text-xs font-black text-gray-400 uppercase mb-2 text-center">Usuario (Tu Email)</label>
-                <input type="email" id="userEmail" required class="w-full p-3 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="ejemplo@correo.com">
+            <div class="bg-white p-6 rounded-2xl shadow-sm mb-6 border-2 border-blue-50">
+                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2 text-center">Identificación del Jugador</label>
+                <input type="email" id="userEmail" required class="w-full p-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center border" placeholder="tu@email.com">
             </div>
 
             <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
-                <button onclick="renderMatches('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition active-tab">A</button>
-                <button onclick="renderMatches('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">B</button>
-                <button onclick="renderMatches('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">C</button>
-                <button onclick="renderMatches('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">D</button>
-                <button onclick="renderMatches('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">E</button>
-                <button onclick="renderMatches('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">F</button>
-                <button onclick="renderMatches('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">G</button>
-                <button onclick="renderMatches('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">H</button>
-                <button onclick="renderMatches('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">I</button>
-                <button onclick="renderMatches('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">J</button>
-                <button onclick="renderMatches('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">K</button>
-                <button onclick="renderMatches('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">L</button>
+                <button onclick="renderMatches('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 active-tab">A</button>
+                <button onclick="renderMatches('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">B</button>
+                <button onclick="renderMatches('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">C</button>
+                <button onclick="renderMatches('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">D</button>
+                <button onclick="renderMatches('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">E</button>
+                <button onclick="renderMatches('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">F</button>
+                <button onclick="renderMatches('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">G</button>
+                <button onclick="renderMatches('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">H</button>
+                <button onclick="renderMatches('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">I</button>
+                <button onclick="renderMatches('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">J</button>
+                <button onclick="renderMatches('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">K</button>
+                <button onclick="renderMatches('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">L</button>
             </div>
 
-            <div id="matches-container" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-24">
+            <div id="matches-container" class="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-28">
                 </div>
 
-            <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-40">
-                <button onclick="savePredictions()" class="w-full bg-green-500 text-white font-black py-4 rounded-2xl shadow-2xl hover:bg-green-600 transition uppercase text-lg border-b-4 border-green-700">
-                    Guardar Pronósticos
+            <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-50">
+                <button onclick="savePredictions()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-2xl hover:bg-blue-700 transition uppercase tracking-tighter">
+                    Confirmar Pronósticos del Grupo
                 </button>
             </div>
         </div>
 
         <div id="view-ranking" class="hidden">
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-                <table class="w-full text-left">
-                    <thead class="bg-blue-900 text-white">
-                        <tr>
-                            <th class="p-4 uppercase text-[10px]">Pos</th>
-                            <th class="p-4 uppercase text-[10px]">Usuario</th>
-                            <th class="p-4 uppercase text-[10px] text-right">Puntos</th>
-                        </tr>
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-100 text-slate-500 font-bold uppercase text-[10px]">
+                        <tr><th class="p-4">#</th><th class="p-4">Usuario</th><th class="p-4 text-right">Pts</th></tr>
                     </thead>
                     <tbody id="ranking-body"></tbody>
                 </table>
             </div>
         </div>
 
-        <div id="toast" class="fixed top-5 right-5 hidden p-4 rounded-xl shadow-2xl text-white font-bold z-50 transition-all"></div>
+        <div id="toast" class="fixed top-5 right-5 hidden p-4 rounded-xl shadow-2xl text-white font-bold z-50"></div>
     </div>
 
     <script>
-        // --- 1. CONFIGURACIÓN ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyUtz-zs9HJEDftt_EQ45PAUMPPsWyNWVHbgKqeHi6kXFXdhHXjsAP6LP_Q53sqJKGy/exec'; // PEGA TU LINK AQUÍ
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyUtz-zs9HJEDftt_EQ45PAUMPPsWyNWVHbgKqeHi6kXFXdhHXjsAP6LP_Q53sqJKGy/exec'; // PEGA TU URL AQUÍ
         
         const fixture = {
-            'A': [{id:'A1', e1:'México 🇲🇽', e2:'Sudáfrica 🇿🇦'}, {id:'A2', e1:'EE.UU. 🇺🇸', e2:'N. Zelanda 🇳🇿'}],
-            'B': [{id:'B1', e1:'Canadá 🇨🇦', e2:'Marruecos 🇲🇦'}, {id:'B2', e1:'España 🇪🇸', e2:'Corea Sur 🇰🇷'}],
-            'C': [{id:'C1', e1:'Brasil 🇧🇷', e2:'Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿'}, {id:'C2', e1:'Colombia 🇨🇴', e2:'Argelia 🇩🇿'}],
-            'D': [{id:'D1', e1:'Uruguay 🇺🇾', e2:'Polonia 🇵🇱'}, {id:'D2', e1:'Italia 🇮🇹', e2:'Nigeria 🇳🇬'}],
-            'E': [{id:'E1', e1:'Francia 🇫🇷', e2:'Australia 🇦🇺'}, {id:'E2', e1:'Turquía 🇹🇷', e2:'Chile 🇨🇱'}],
-            'F': [{id:'F1', e1:'P. Bajos 🇳🇱', e2:'Perú 🇵🇪'}, {id:'F2', e1:'Suiza 🇨🇭', e2:'Senegal 🇸🇳'}],
-            'G': [{id:'G1', e1:'Alemania 🇩🇪', e2:'Egipto 🇪🇬'}, {id:'G2', e1:'Dinamarca 🇩🇰', e2:'Irán 🇮🇷'}],
-            'H': [{id:'H1', e1:'Portugal 🇵🇹', e2:'Ghana 🇬🇭'}, {id:'H2', e1:'Bélgica 🇧🇪', e2:'Honduras 🇭🇳'}],
-            'I': [{id:'I1', e1:'Croacia 🇭🇷', e2:'Camerún 🇨🇲'}, {id:'I2', e1:'Hungría 🇭🇺', e2:'Jamaica 🇯🇲'}],
-            'J': [{id:'J1', e1:'Eslovenia 🇸🇮', e2:'Paraguay 🇵🇾'}, {id:'J2', e1:'Rumania 🇷🇴', e2:'Mali 🇲🇱'}],
-            'K': [{id:'K1', e1:'Serbia 🇷🇸', e2:'Noruega 🇳🇴'}, {id:'K2', e1:'Suecia 🇸🇪', e2:'Qatar 🇶🇦'}],
-            'L': [{id:'L1', e1:'Argentina 🇦🇷', e2:'Austria 🇦🇹'}, {id:'L2', e1:'Japón 🇯🇵', e2:'Ecuador 🇪🇨'}]
+            'A': [{id:'A1',e1:'México 🇲🇽',e2:'Sudáfrica 🇿🇦'},{id:'A2',e1:'EE.UU. 🇺🇸',e2:'N. Zelanda 🇳🇿'},{id:'A3',e1:'México 🇲🇽',e2:'N. Zelanda 🇳🇿'},{id:'A4',e1:'EE.UU. 🇺🇸',e2:'Sudáfrica 🇿🇦'}],
+            'B': [{id:'B1',e1:'Canadá 🇨🇦',e2:'Marruecos 🇲🇦'},{id:'B2',e1:'España 🇪🇸',e2:'Corea Sur 🇰🇷'},{id:'B3',e1:'Canadá 🇨🇦',e2:'Corea Sur 🇰🇷'},{id:'B4',e1:'España 🇪🇸',e2:'Marruecos 🇲🇦'}],
+            'C': [{id:'C1',e1:'Brasil 🇧🇷',e2:'Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿'},{id:'C2',e1:'Colombia 🇨🇴',e2:'Argelia 🇩🇿'},{id:'C3',e1:'Brasil 🇧🇷',e2:'Argelia 🇩🇿'},{id:'C4',e1:'Colombia 🇨🇴',e2:'Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿'}],
+            'D': [{id:'D1',e1:'Uruguay 🇺🇾',e2:'Polonia 🇵🇱'},{id:'D2',e1:'Italia 🇮🇹',e2:'Nigeria 🇳🇬'},{id:'D3',e1:'Uruguay 🇺🇾',e2:'Nigeria 🇳🇬'},{id:'D4',e1:'Italia 🇮🇹',e2:'Polonia 🇵🇱'}],
+            'E': [{id:'E1',e1:'Francia 🇫🇷',e2:'Australia 🇦🇺'},{id:'E2',e1:'Turquía 🇹🇷',e2:'Chile 🇨🇱'},{id:'E3',e1:'Francia 🇫🇷',e2:'Chile 🇨🇱'},{id:'E4',e1:'Turquía 🇹🇷',e2:'Australia 🇦🇺'}],
+            'F': [{id:'F1',e1:'P. Bajos 🇳🇱',e2:'Perú 🇵🇪'},{id:'F2',e1:'Suiza 🇨🇭',e2:'Senegal 🇸🇳'},{id:'F3',e1:'P. Bajos 🇳🇱',e2:'Senegal 🇸🇳'},{id:'F4',e1:'Suiza 🇨🇭',e2:'Perú 🇵🇪'}],
+            'G': [{id:'G1',e1:'Alemania 🇩🇪',e2:'Egipto 🇪🇬'},{id:'G2',e1:'Dinamarca 🇩🇰',e2:'Irán 🇮🇷'},{id:'G3',e1:'Alemania 🇩🇪',e2:'Irán 🇮🇷'},{id:'G4',e1:'Dinamarca 🇩🇰',e2:'Egipto 🇪🇬'}],
+            'H': [{id:'H1',e1:'Portugal 🇵🇹',e2:'Ghana 🇬🇭'},{id:'H2',e1:'Bélgica 🇧🇪',e2:'Honduras 🇭🇳'},{id:'H3',e1:'Portugal 🇵🇹',e2:'Honduras 🇭🇳'},{id:'H4',e1:'Bélgica 🇧🇪',e2:'Ghana 🇬🇭'}],
+            'I': [{id:'I1',e1:'Croacia 🇭🇷',e2:'Camerún 🇨🇲'},{id:'I2',e1:'Hungría 🇭🇺',e2:'Jamaica 🇯🇲'},{id:'I3',e1:'Croacia 🇭🇷',e2:'Jamaica 🇯🇲'},{id:'I4',e1:'Hungría 🇭🇺',e2:'Camerún 🇨🇲'}],
+            'J': [{id:'J1',e1:'Eslovenia 🇸🇮',e2:'Paraguay 🇵🇾'},{id:'J2',e1:'Rumania 🇷🇴',e2:'Mali 🇲🇱'},{id:'J3',e1:'Eslovenia 🇸🇮',e2:'Mali 🇲🇱'},{id:'J4',e1:'Rumania 🇷🇴',e2:'Paraguay 🇵🇾'}],
+            'K': [{id:'K1',e1:'Serbia 🇷🇸',e2:'Noruega 🇳🇴'},{id:'K2',e1:'Suecia 🇸🇪',e2:'Qatar 🇶🇦'},{id:'K3',e1:'Serbia 🇷🇸',e2:'Qatar 🇶🇦'},{id:'K4',e1:'Suecia 🇸🇪',e2:'Noruega 🇳🇴'}],
+            'L': [{id:'L1',e1:'Argentina 🇦🇷',e2:'Austria 🇦🇹'},{id:'L2',e1:'Japón 🇯🇵',e2:'Ecuador 🇪🇨'},{id:'L3',e1:'Argentina 🇦🇷',e2:'Ecuador 🇪🇨'},{id:'L4',e1:'Japón 🇯🇵',e2:'Austria 🇦🇹'}]
         };
 
-        // --- 2. LÓGICA DE NAVEGACIÓN ---
         function switchView(view) {
             document.getElementById('view-grupos').classList.toggle('hidden', view !== 'grupos');
             document.getElementById('view-ranking').classList.toggle('hidden', view !== 'ranking');
@@ -110,29 +103,28 @@
 
             fixture[letra].forEach(m => {
                 container.innerHTML += `
-                    <div class="match-card bg-white p-5 rounded-2xl shadow-sm border-b-2 border-slate-100">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-[10px] font-black bg-blue-100 text-blue-900 px-2 py-1 rounded">PARTIDO ${m.id}</span>
+                    <div class="match-card bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex justify-between items-center mb-4 border-b border-slate-50 pb-2">
+                            <span class="text-[9px] font-black text-blue-900 bg-blue-50 px-2 py-0.5 rounded uppercase">Grupo ${letra} - ID ${m.id}</span>
                         </div>
-                        <div class="grid grid-cols-3 items-center gap-2">
-                            <div class="text-center font-bold text-xs">${m.e1}</div>
+                        <div class="grid grid-cols-3 items-center gap-1">
+                            <div class="text-center font-bold text-[11px] leading-tight text-slate-700">${m.e1}</div>
                             <div class="flex justify-center space-x-1">
-                                <input type="number" id="gA-${m.id}" data-match="${m.e1} vs ${m.e2}" class="w-10 h-10 border-2 border-slate-200 rounded text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="0">
-                                <input type="number" id="gB-${m.id}" class="w-10 h-10 border-2 border-slate-200 rounded text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="0">
+                                <input type="number" id="gA-${m.id}" data-match="${m.e1} vs ${m.e2}" class="w-10 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
+                                <input type="number" id="gB-${m.id}" class="w-10 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
                             </div>
-                            <div class="text-center font-bold text-xs">${m.e2}</div>
+                            <div class="text-center font-bold text-[11px] leading-tight text-slate-700">${m.e2}</div>
                         </div>
                     </div>`;
             });
         }
 
-        // --- 3. ENVÍO DE DATOS ---
         async function savePredictions() {
             const email = document.getElementById('userEmail').value;
             if(!email) return showToast("Falta tu email", "bg-red-500");
             
             const inputs = document.querySelectorAll('#matches-container input[id^="gA-"]');
-            showToast("Guardando...", "bg-blue-600");
+            showToast("Guardando datos...", "bg-blue-600");
 
             for (let i = 0; i < inputs.length; i++) {
                 const idMatch = inputs[i].id.split('-')[1];
@@ -152,10 +144,9 @@
                     });
                 }
             }
-            showToast("¡Pronóstico guardado exitosamente!", "bg-green-600");
+            showToast("Pronósticos guardados correctamente", "bg-green-600");
         }
 
-        // --- 4. RANKING ---
         async function fetchRanking() {
             try {
                 const res = await fetch(scriptURL);
@@ -164,15 +155,15 @@
                 body.innerHTML = '';
                 
                 if(data.length <= 1) {
-                    body.innerHTML = '<tr><td colspan="3" class="p-10 text-center text-slate-400">Aún no hay puntos cargados</td></tr>';
+                    body.innerHTML = '<tr><td colspan="3" class="p-10 text-center text-slate-400">Sin datos de ranking</td></tr>';
                     return;
                 }
 
                 data.slice(1).forEach((row, i) => {
                     body.innerHTML += `
-                        <tr class="border-b border-slate-100">
-                            <td class="p-4 font-bold text-blue-900 text-sm">#${i+1}</td>
-                            <td class="p-4 text-xs font-medium text-slate-600">${row[0]}</td>
+                        <tr class="border-b border-slate-50">
+                            <td class="p-4 font-bold text-blue-900">#${i+1}</td>
+                            <td class="p-4 text-xs font-semibold text-slate-600">${row[0]}</td>
                             <td class="p-4 text-right font-black text-blue-900">${row[1]}</td>
                         </tr>`;
                 });
@@ -189,7 +180,6 @@
             setTimeout(() => t.classList.add('hidden'), 3000);
         }
 
-        // Inicializar
         renderMatches('A');
     </script>
 </body>
