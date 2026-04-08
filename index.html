@@ -31,10 +31,19 @@
             </div>
 
             <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
-                "A,B,C,D,E,F,G,H,I,J,K,L".split(',').forEach(letra => {
-                    document.write(`<button onclick="renderMatches('${letra}')" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition" id="btn-gr-${letra}">${letra}</button>`);
-                });
-            </div>
+    <button onclick="renderMatches('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">A</button>
+    <button onclick="renderMatches('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">B</button>
+    <button onclick="renderMatches('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">C</button>
+    <button onclick="renderMatches('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">D</button>
+    <button onclick="renderMatches('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">E</button>
+    <button onclick="renderMatches('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">F</button>
+    <button onclick="renderMatches('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">G</button>
+    <button onclick="renderMatches('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">H</button>
+    <button onclick="renderMatches('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">I</button>
+    <button onclick="renderMatches('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">J</button>
+    <button onclick="renderMatches('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">K</button>
+    <button onclick="renderMatches('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 hover:bg-blue-100 transition">L</button>
+</div>
 
             <div id="matches-container" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-24">
                 </div>
