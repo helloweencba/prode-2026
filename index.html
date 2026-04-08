@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prode Mundial 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #f3f4f6; font-family: sans-serif; }
+        .card { background: white; padding: 20px; border-radius: 12px; shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-md mx-auto space-y-6">
+        <header class="text-center py-6">
+            <h1 class="text-3xl font-bold text-blue-900">PRODE 2026 🏆</h1>
+            <p class="text-gray-600">EEUU, México y Canadá</p>
+        </header>
+
+        <div class="card">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2">Cargar Predicción</h2>
+            <form id="prodeForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium">Tu Email</label>
+                    <input type="email" id="email" required class="w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Partido</label>
+                    <select id="partido" class="w-full p-2 border rounded">
+                        <option value="ARG-MEX">Argentina vs México</option>
+                        <option value="ESP-ALE">España vs Alemania</option>
+                        <option value="USA-CAN">EEUU vs Canadá</option>
+                    </select>
+                </div>
+                <div class="flex space-x-4 items-center">
+                    <input type="number" id="golesA" placeholder="0" class="w-full p-2 border rounded text-center">
+                    <span class="font-bold">vs</span>
+                    <input type="number" id="golesB" placeholder="0" class="w-full p-2 border rounded text-center">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                    ENVIAR PRONÓSTICO
+                </button>
+            </form>
+            <div id="status" class="mt-4 text-center hidden font-medium"></div>
+        </div>
+
+        <div class="card bg-blue-50">
+            <h2 class="text-lg font-bold mb-2">📊 Probabilidades de Ganar</h2>
+            <div class="space-y-2">
+                <div>
+                    <div class="flex justify-between text-xs"><span>España</span><span>16.2%</span></div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full"><div class="bg-red-500 h-2 rounded-full" style="width: 16%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs"><span>Argentina</span><span>15.5%</span></div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full"><div class="bg-blue-500 h-2 rounded-full" style="width: 15%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs"><span>Francia</span><span>13.8%</span></div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full"><div class="bg-indigo-600 h-2 rounded-full" style="width: 14%"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxTeoYSXzS67CQcVy9vmgeuRxqBB56ThTFCusNQNZPs7SXVwD72EpTOp8PubeO9XbSc/exec'; // <--- PEGA TU LINK AQUÍ
+        const form = document.getElementById('prodeForm');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            status.innerText = "Enviando...";
+            status.classList.remove('hidden', 'text-green-600', 'text-red-600');
+
+            const body = {
+                email: document.getElementById('email').value,
+                partido: document.getElementById('partido').value,
+                golesA: document.getElementById('golesA').value,
+                golesB: document.getElementById('golesB').value
+            };
+
+            fetch(scriptURL, { method: 'POST', body: JSON.stringify(body) })
+                .then(response => {
+                    status.innerText = "¡Pronóstico guardado con éxito!";
+                    status.classList.add('text-green-600');
+                    form.reset();
+                })
+                .catch(error => {
+                    status.innerText = "Error al enviar. Intenta de nuevo.";
+                    status.classList.add('text-red-600');
+                });
+        });
+    </script>
+</body>
+</html>
