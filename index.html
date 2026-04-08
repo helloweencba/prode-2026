@@ -3,74 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode Mundial 2026 - Edición Total</title>
+    <title>Prode Mundial 2026 - Edición Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .active-tab { background-color: #1e3a8a !important; color: white !important; border-bottom: 4px solid #facc15; }
-        .match-card { transition: all 0.3s; border-left: 6px solid #1e3a8a; }
+        .match-card { transition: all 0.2s; border-left: 4px solid #1e3a8a; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen">
-    <div class="max-w-5xl mx-auto p-4">
-        <header class="text-center py-6 bg-blue-900 text-white rounded-b-3xl shadow-lg mb-8">
-            <h1 class="text-3xl font-black italic italic">PRODE 2026 🏆</h1>
-            <p class="text-blue-200 text-sm font-bold tracking-widest uppercase">El fixture de los 12 grupos</p>
+<body class="bg-slate-100 min-h-screen pb-24">
+    <div class="max-w-7xl mx-auto p-4">
+        <header class="text-center py-6 bg-blue-900 text-white rounded-2xl shadow-xl mb-6">
+            <h1 class="text-3xl font-black italic tracking-tighter">PRODE MUNDIAL 2026</h1>
+            <p class="text-blue-200 text-[10px] font-bold tracking-[0.3em] uppercase">Centro de Estadísticas & Pronósticos</p>
         </header>
 
-        <nav class="flex justify-center space-x-4 mb-8">
-            <button onclick="switchView('grupos')" id="btn-grupos" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow active-tab uppercase text-xs">Pronósticos</button>
-            <button onclick="switchView('ranking')" id="btn-ranking" class="px-6 py-2 rounded-full font-bold bg-white text-blue-900 shadow uppercase text-xs">Ranking</button>
-        </nav>
-
-        <div id="view-grupos">
-            <div class="bg-white p-6 rounded-2xl shadow-sm mb-6 border-2 border-blue-50">
-                <label class="block text-[10px] font-black text-gray-400 uppercase mb-2 text-center">Identificación del Jugador</label>
-                <input type="email" id="userEmail" required class="w-full p-3 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center border" placeholder="tu@email.com">
-            </div>
-
-            <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
-                <button onclick="renderMatches('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 active-tab">A</button>
-                <button onclick="renderMatches('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">B</button>
-                <button onclick="renderMatches('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">C</button>
-                <button onclick="renderMatches('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">D</button>
-                <button onclick="renderMatches('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">E</button>
-                <button onclick="renderMatches('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">F</button>
-                <button onclick="renderMatches('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">G</button>
-                <button onclick="renderMatches('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">H</button>
-                <button onclick="renderMatches('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">I</button>
-                <button onclick="renderMatches('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">J</button>
-                <button onclick="renderMatches('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">K</button>
-                <button onclick="renderMatches('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">L</button>
-            </div>
-
-            <div id="matches-container" class="grid gap-4 md:grid-cols-2 lg:grid-cols-2 mb-28">
-                </div>
-
-            <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-50">
-                <button onclick="savePredictions()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-2xl hover:bg-blue-700 transition uppercase tracking-tighter">
-                    Confirmar Pronósticos del Grupo
-                </button>
-            </div>
+        <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
+            <button onclick="renderGrupo('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 active-tab">A</button>
+            <button onclick="renderGrupo('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">B</button>
+            <button onclick="renderGrupo('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">C</button>
+            <button onclick="renderGrupo('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">D</button>
+            <button onclick="renderGrupo('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">E</button>
+            <button onclick="renderGrupo('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">F</button>
+            <button onclick="renderGrupo('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">G</button>
+            <button onclick="renderGrupo('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">H</button>
+            <button onclick="renderGrupo('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">I</button>
+            <button onclick="renderGrupo('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">J</button>
+            <button onclick="renderGrupo('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">K</button>
+            <button onclick="renderGrupo('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900">L</button>
         </div>
 
-        <div id="view-ranking" class="hidden">
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-100 text-slate-500 font-bold uppercase text-[10px]">
-                        <tr><th class="p-4">#</th><th class="p-4">Usuario</th><th class="p-4 text-right">Pts</th></tr>
-                    </thead>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <div class="lg:w-2/3">
+                <div class="bg-white p-6 rounded-2xl shadow-sm mb-6 flex flex-col md:flex-row items-center gap-4">
+                    <div class="flex-1 w-full">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Tu Identificador</label>
+                        <input type="email" id="userEmail" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold outline-none focus:border-blue-500" placeholder="tu@email.com">
+                    </div>
+                    <button onclick="switchView('ranking')" class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold text-xs hover:bg-black transition">VER RANKING GLOBAL</button>
+                </div>
+
+                <div id="matches-container" class="grid gap-4 md:grid-cols-2">
+                    </div>
+            </div>
+
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden sticky top-6">
+                    <div class="bg-blue-900 p-5 text-white">
+                        <h3 class="font-black text-sm uppercase tracking-widest flex justify-between items-center">
+                            Posiciones <span id="grupo-titulo" class="bg-yellow-400 text-blue-900 px-3 py-0.5 rounded-full text-[10px]">GRUPO A</span>
+                        </h3>
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-400 text-[9px] font-black uppercase">
+                                <th class="p-4">Equipo</th>
+                                <th class="p-4 text-center">PJ</th>
+                                <th class="p-4 text-center">DG</th>
+                                <th class="p-4 text-center text-blue-900">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body" class="text-sm font-bold text-slate-700">
+                            </tbody>
+                    </table>
+                    <div class="p-4 bg-slate-50 border-t">
+                        <p class="text-[9px] text-slate-400 italic text-center">Actualizado automáticamente desde resultados oficiales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xs px-4">
+        <button onclick="savePredictions()" class="w-full bg-green-500 text-white font-black py-5 rounded-2xl shadow-2xl hover:bg-green-600 transition-all border-b-4 border-green-700 active:translate-y-1 active:border-b-0 uppercase tracking-tighter">
+            Guardar Pronósticos
+        </button>
+    </div>
+
+    <div id="view-ranking" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-[60] p-4 flex items-center justify-center">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden max-h-[80vh] flex flex-col">
+            <div class="p-6 bg-blue-900 text-white flex justify-between items-center">
+                <h2 class="font-black text-xl italic">RANKING GLOBAL</h2>
+                <button onclick="switchView('grupos')" class="text-white bg-white/20 hover:bg-white/40 px-4 py-2 rounded-xl text-xs font-bold uppercase">Cerrar</button>
+            </div>
+            <div class="overflow-y-auto flex-1">
+                <table class="w-full">
                     <tbody id="ranking-body"></tbody>
                 </table>
             </div>
         </div>
-
-        <div id="toast" class="fixed top-5 right-5 hidden p-4 rounded-xl shadow-2xl text-white font-bold z-50"></div>
     </div>
 
+    <div id="toast" class="fixed top-5 right-5 hidden p-4 rounded-xl shadow-2xl text-white font-bold z-[100] transition-all"></div>
+
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyUtz-zs9HJEDftt_EQ45PAUMPPsWyNWVHbgKqeHi6kXFXdhHXjsAP6LP_Q53sqJKGy/exec'; // PEGA TU URL AQUÍ
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx1lJPZ-fRkYrRIbtRYlb3164xKNF0YULkCpbX-PJokWSAZV-zhItdf0EqqPzDUM3S5/exec';
         
         const fixture = {
             'A': [{id:'A1',e1:'México 🇲🇽',e2:'Sudáfrica 🇿🇦'},{id:'A2',e1:'EE.UU. 🇺🇸',e2:'N. Zelanda 🇳🇿'},{id:'A3',e1:'México 🇲🇽',e2:'N. Zelanda 🇳🇿'},{id:'A4',e1:'EE.UU. 🇺🇸',e2:'Sudáfrica 🇿🇦'}],
@@ -87,100 +116,101 @@
             'L': [{id:'L1',e1:'Argentina 🇦🇷',e2:'Austria 🇦🇹'},{id:'L2',e1:'Japón 🇯🇵',e2:'Ecuador 🇪🇨'},{id:'L3',e1:'Argentina 🇦🇷',e2:'Ecuador 🇪🇨'},{id:'L4',e1:'Japón 🇯🇵',e2:'Austria 🇦🇹'}]
         };
 
-        function switchView(view) {
-            document.getElementById('view-grupos').classList.toggle('hidden', view !== 'grupos');
-            document.getElementById('view-ranking').classList.toggle('hidden', view !== 'ranking');
-            document.getElementById('btn-grupos').classList.toggle('active-tab', view === 'grupos');
-            document.getElementById('btn-ranking').classList.toggle('active-tab', view === 'ranking');
-            if(view === 'ranking') fetchRanking();
-        }
-
-        function renderMatches(letra) {
-            const container = document.getElementById('matches-container');
-            container.innerHTML = '';
+        async function renderGrupo(letra) {
             document.querySelectorAll('.group-btn').forEach(b => b.classList.remove('active-tab'));
             document.getElementById(`btn-gr-${letra}`).classList.add('active-tab');
+            document.getElementById('grupo-titulo').innerText = `GRUPO ${letra}`;
 
+            const mContainer = document.getElementById('matches-container');
+            mContainer.innerHTML = '';
             fixture[letra].forEach(m => {
-                container.innerHTML += `
-                    <div class="match-card bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
-                        <div class="flex justify-between items-center mb-4 border-b border-slate-50 pb-2">
-                            <span class="text-[9px] font-black text-blue-900 bg-blue-50 px-2 py-0.5 rounded uppercase">Grupo ${letra} - ID ${m.id}</span>
+                mContainer.innerHTML += `
+                    <div class="match-card bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[9px] font-black bg-blue-50 text-blue-900 px-2 py-0.5 rounded">MATCH ${m.id}</span>
                         </div>
                         <div class="grid grid-cols-3 items-center gap-1">
-                            <div class="text-center font-bold text-[11px] leading-tight text-slate-700">${m.e1}</div>
+                            <div class="text-center font-bold text-[10px] leading-tight">${m.e1}</div>
                             <div class="flex justify-center space-x-1">
-                                <input type="number" id="gA-${m.id}" data-match="${m.e1} vs ${m.e2}" class="w-10 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
-                                <input type="number" id="gB-${m.id}" class="w-10 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
+                                <input type="number" id="gA-${m.id}" data-match="${m.e1} vs ${m.e2}" class="w-9 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
+                                <input type="number" id="gB-${m.id}" class="w-9 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
                             </div>
-                            <div class="text-center font-bold text-[11px] leading-tight text-slate-700">${m.e2}</div>
+                            <div class="text-center font-bold text-[10px] leading-tight">${m.e2}</div>
                         </div>
                     </div>`;
             });
+
+            // Cargar Tabla de Posiciones
+            const res = await fetch(scriptURL);
+            const data = await res.json();
+            const tBody = document.getElementById('tabla-body');
+            tBody.innerHTML = '';
+            
+            data.posiciones.slice(1).forEach(row => {
+                if(row[0] === letra) {
+                    tBody.innerHTML += `
+                        <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+                            <td class="p-4">${row[1]}</td>
+                            <td class="p-4 text-center font-normal">${row[2]}</td>
+                            <td class="p-4 text-center font-normal">${row[3]}</td>
+                            <td class="p-4 text-center text-blue-900 font-black">${row[4]}</td>
+                        </tr>`;
+                }
+            });
+            if(tBody.innerHTML === '') tBody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-slate-300 italic">No hay datos oficiales</td></tr>';
         }
 
         async function savePredictions() {
             const email = document.getElementById('userEmail').value;
-            if(!email) return showToast("Falta tu email", "bg-red-500");
+            if(!email) return showToast("Escribe tu email primero", "bg-red-500");
             
             const inputs = document.querySelectorAll('#matches-container input[id^="gA-"]');
-            showToast("Guardando datos...", "bg-blue-600");
+            showToast("Guardando pronósticos...", "bg-blue-600");
 
             for (let i = 0; i < inputs.length; i++) {
-                const idMatch = inputs[i].id.split('-')[1];
+                const idM = inputs[i].id.split('-')[1];
                 const gA = inputs[i].value;
-                const gB = document.getElementById(`gB-${idMatch}`).value;
-                
+                const gB = document.getElementById(`gB-${idM}`).value;
                 if(gA !== "" && gB !== "") {
                     await fetch(scriptURL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        body: JSON.stringify({
-                            email: email,
-                            partido: inputs[i].dataset.match,
-                            golesA: gA,
-                            golesB: gB
-                        })
+                        body: JSON.stringify({ email, partido: inputs[i].dataset.match, golesA: gA, golesB: gB })
                     });
                 }
             }
-            showToast("Pronósticos guardados correctamente", "bg-green-600");
+            showToast("¡Guardado correctamente!", "bg-green-600");
         }
 
         async function fetchRanking() {
-            try {
-                const res = await fetch(scriptURL);
-                const data = await res.json();
-                const body = document.getElementById('ranking-body');
-                body.innerHTML = '';
-                
-                if(data.length <= 1) {
-                    body.innerHTML = '<tr><td colspan="3" class="p-10 text-center text-slate-400">Sin datos de ranking</td></tr>';
-                    return;
-                }
+            const res = await fetch(scriptURL);
+            const data = await res.json();
+            const rBody = document.getElementById('ranking-body');
+            rBody.innerHTML = '';
+            data.ranking.slice(1).forEach((row, i) => {
+                rBody.innerHTML += `
+                    <tr class="border-b">
+                        <td class="p-4 font-black text-blue-900 w-12 text-center">#${i+1}</td>
+                        <td class="p-4 font-semibold text-slate-600">${row[0]}</td>
+                        <td class="p-4 text-right font-black text-blue-900">${row[1]} pts</td>
+                    </tr>`;
+            });
+        }
 
-                data.slice(1).forEach((row, i) => {
-                    body.innerHTML += `
-                        <tr class="border-b border-slate-50">
-                            <td class="p-4 font-bold text-blue-900">#${i+1}</td>
-                            <td class="p-4 text-xs font-semibold text-slate-600">${row[0]}</td>
-                            <td class="p-4 text-right font-black text-blue-900">${row[1]}</td>
-                        </tr>`;
-                });
-            } catch (e) {
-                console.error(e);
-            }
+        function switchView(view) {
+            document.getElementById('view-ranking').classList.toggle('hidden', view !== 'ranking');
+            if(view === 'ranking') fetchRanking();
         }
 
         function showToast(msg, color) {
             const t = document.getElementById('toast');
             t.innerText = msg;
-            t.className = `fixed top-5 right-5 p-4 rounded-xl shadow-2xl text-white font-bold z-50 ${color}`;
+            t.className = `fixed top-5 right-5 p-4 rounded-xl shadow-2xl text-white font-bold z-[100] ${color}`;
             t.classList.remove('hidden');
             setTimeout(() => t.classList.add('hidden'), 3000);
         }
 
-        renderMatches('A');
+        renderGrupo('A');
     </script>
 </body>
 </html>
