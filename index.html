@@ -3,219 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode Mundial 2026 - Dohko Solutions</title>
+    <title>PRODEMAX Aeronáutica - Mundial 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .active-tab { background-color: #1e3a8a !important; color: white !important; border-bottom: 4px solid #facc15; }
-        .match-card { transition: all 0.2s; border-left: 4px solid #1e3a8a; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
-<body class="bg-slate-100 min-h-screen pb-24 font-sans">
-    <div class="max-w-7xl mx-auto p-4">
-        <header class="text-center py-6 bg-blue-900 text-white rounded-2xl shadow-xl mb-6">
-            <h1 class="text-3xl font-black italic tracking-tighter uppercase">PRODE MUNDIAL 2026</h1>
-            <p class="text-blue-200 text-[10px] font-bold tracking-[0.3em] uppercase text-center">Dashboard de Grupos & Posiciones</p>
-        </header>
+<body class="bg-slate-900 font-sans min-h-screen text-slate-800">
 
-        <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 no-scrollbar">
-            <button onclick="renderGrupo('A')" id="btn-gr-A" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50 active-tab">A</button>
-            <button onclick="renderGrupo('B')" id="btn-gr-B" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">B</button>
-            <button onclick="renderGrupo('C')" id="btn-gr-C" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">C</button>
-            <button onclick="renderGrupo('D')" id="btn-gr-D" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">D</button>
-            <button onclick="renderGrupo('E')" id="btn-gr-E" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">E</button>
-            <button onclick="renderGrupo('F')" id="btn-gr-F" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">F</button>
-            <button onclick="renderGrupo('G')" id="btn-gr-G" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">G</button>
-            <button onclick="renderGrupo('H')" id="btn-gr-H" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">H</button>
-            <button onclick="renderGrupo('I')" id="btn-gr-I" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">I</button>
-            <button onclick="renderGrupo('J')" id="btn-gr-J" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">J</button>
-            <button onclick="renderGrupo('K')" id="btn-gr-K" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">K</button>
-            <button onclick="renderGrupo('L')" id="btn-gr-L" class="group-btn flex-shrink-0 w-12 h-12 rounded-xl bg-white shadow font-bold text-blue-900 transition hover:bg-blue-50">L</button>
+    <div class="flex justify-between items-center p-4 bg-white shadow-lg sticky top-0 z-50">
+        <img src="assets/logo_aeronautica.png" alt="Aeronáutica" class="h-10 w-auto">
+        <div class="text-center">
+            <h1 class="text-sm font-black text-blue-900 leading-tight">PRODEMAX IA</h1>
+            <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold">Dirección de Aeronáutica</p>
         </div>
+        <img src="assets/logo_mundial.webp" alt="Mundial 2026" class="h-12 w-auto">
+    </div>
 
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div class="lg:w-2/3">
-                <div class="bg-white p-6 rounded-2xl shadow-sm mb-6 flex flex-col md:flex-row items-center gap-4 border border-slate-200">
-                    <div class="flex-1 w-full">
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 tracking-wider">Identificación (Email)</label>
-                        <input type="email" id="userEmail" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold outline-none focus:border-blue-500" placeholder="ejemplo@correo.com">
-                    </div>
-                    <button onclick="switchView('ranking')" class="px-6 py-3 bg-slate-800 text-white rounded-xl font-bold text-xs hover:bg-black transition shadow-lg">VER RANKING</button>
+    <div class="max-w-md mx-auto py-8 px-4">
+        
+        <div id="registro-usuario" class="glass-card p-8 rounded-[2rem] shadow-2xl border-b-8 border-blue-600">
+            <div class="text-center mb-8">
+                <div class="inline-block p-3 bg-blue-100 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
                 </div>
-                <div id="matches-container" class="grid gap-4 md:grid-cols-2"></div>
+                <h2 class="text-2xl font-black text-slate-900 uppercase">Bienvenido</h2>
+                <p class="text-slate-500 text-sm italic">Registrá tu perfil para empezar a sumar puntos.</p>
+            </div>
+            
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-[10px] font-bold text-blue-600 uppercase mb-1 ml-1 tracking-wider">Nombre y Apellido</label>
+                    <input type="text" id="user-name" placeholder="EJ: HUGO ALLENDE" 
+                           class="w-full p-4 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-500 focus:bg-white outline-none transition-all font-bold">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-blue-600 uppercase mb-1 ml-1 tracking-wider">Área / Departamento</label>
+                    <select id="user-area" class="w-full p-4 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-500 focus:bg-white outline-none transition-all font-bold">
+                        <option value="ADMINISTRACION">ADMINISTRACIÓN</option>
+                        <option value="TECNICA">TÉCNICA</option>
+                        <option value="OPERACIONES">OPERACIONES</option>
+                        <option value="UOTA">UOTA</option>
+                    </select>
+                </div>
+
+                <button onclick="guardarPerfil()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95 text-lg mt-4">
+                    INGRESAR AL JUEGO
+                </button>
+            </div>
+        </div>
+
+        <div id="prode-main" class="hidden animate-fade-in">
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 p-6 rounded-3xl text-white mb-8 flex justify-between items-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <p class="text-[10px] text-blue-300 uppercase font-black tracking-widest">Participante</p>
+                    <h2 id="display-name" class="text-xl font-black"></h2>
+                </div>
+                <div class="relative z-10 text-right">
+                    <p id="display-area" class="text-[10px] bg-blue-700/50 backdrop-blur-sm px-3 py-1.5 rounded-xl font-black border border-blue-400/30"></p>
+                </div>
+                <div class="absolute -right-4 -bottom-4 opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                </div>
             </div>
 
-            <div class="lg:w-1/3">
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden sticky top-6">
-                    <div class="bg-blue-900 p-5 text-white">
-                        <h3 class="font-black text-sm uppercase tracking-widest flex justify-between items-center">
-                            Posiciones <span id="grupo-titulo" class="bg-yellow-400 text-blue-900 px-3 py-0.5 rounded-full text-[10px] font-black">GRUPO A</span>
-                        </h3>
-                    </div>
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="bg-slate-50 text-slate-400 text-[9px] font-black uppercase">
-                                <th class="p-4">Equipo</th>
-                                <th class="p-4 text-center">PJ</th>
-                                <th class="p-4 text-center">DG</th>
-                                <th class="p-4 text-center text-blue-900">Pts</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabla-body" class="text-sm font-bold text-slate-700"></tbody>
-                    </table>
+            <div id="contenedor-partidos" class="space-y-4">
+                <div class="text-center py-10">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto"></div>
+                    <p class="text-white text-xs mt-4 opacity-50 italic font-bold">Sincronizando con la Dirección...</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-xs px-4">
-        <button onclick="savePredictions()" class="w-full bg-green-500 text-white font-black py-5 rounded-2xl shadow-2xl hover:bg-green-600 transition-all border-b-4 border-green-700 active:translate-y-1 active:border-b-0 uppercase tracking-tighter">
-            Confirmar Pronósticos
-        </button>
-    </div>
-
-    <div id="view-ranking" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-[60] p-4 flex items-center justify-center">
-        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden max-h-[80vh] flex flex-col">
-            <div class="p-6 bg-blue-900 text-white flex justify-between items-center">
-                <h2 class="font-black text-xl italic">RANKING GLOBAL</h2>
-                <button onclick="switchView('grupos')" class="text-white bg-white/20 hover:bg-white/40 px-4 py-2 rounded-xl text-xs font-bold uppercase">Cerrar</button>
-            </div>
-            <div class="overflow-y-auto flex-1 p-4">
-                <table class="w-full">
-                    <tbody id="ranking-body"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div id="toast" class="fixed top-5 right-5 hidden p-4 rounded-xl shadow-2xl text-white font-bold z-[100] transition-all"></div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzmio7-pDu7iLCcx1cmEDq31W1IKx0H4LLkh0T2UdXOEV2kBo800XhwDRn2r6SN8JgN/exec';
+        // URL de tu Apps Script (Debe ser la de la implementación)
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzmio7-pDu7iLCcx1cmEDq31W1IKx0H4LLkh0T2UdXOEV2kBo800XhwDRn2r6SN8JgN/exec";
 
-        const banderas = {
-            'Argentina': '🇦🇷', 'Mexico': '🇲🇽', 'USA': '🇺🇸', 'Canada': '🇨🇦', 'Spain': '🇪🇸', 
-            'Brazil': '🇧🇷', 'France': '🇫🇷', 'Germany': '🇩🇪', 'Italy': '🇮🇹', 'Uruguay': '🇺🇾',
-            'Ecuador': '🇪🇨', 'Colombia': '🇨🇴', 'Portugal': '🇵🇹', 'Netherlands': '🇳🇱',
-            'Belgium': '🇧🇪', 'Croatia': '🇭🇷', 'Morocco': '🇲🇦', 'Japan': '🇯🇵', 
-            'Korea Republic': '🇰🇷', 'Poland': '🇵🇱', 'South Africa': '🇿🇦', 'New Zealand': '🇳🇿',
-            'Austria': '🇦🇹', 'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Algeria': '🇩🇿', 'Nigeria': '🇳🇬', 
-            'Australia': '🇦🇺', 'Turkey': '🇹🇷', 'Chile': '🇨🇱', 'Peru': '🇵🇪', 'Switzerland': '🇨🇭',
-            'Senegal': '🇸🇳', 'Egypt': '🇪🇬', 'Denmark': '🇩🇰', 'Iran': '🇮🇷', 'Ghana': '🇬🇭',
-            'Honduras': '🇭🇳', 'Cameroon': '🇨🇲', 'Hungary': '🇭🇺', 'Jamaica': '🇯🇲',
-            'Slovenia': '🇸🇮', 'Paraguay': '🇵🇾', 'Romania': '🇷🇴', 'Mali': '🇲🇱',
-            'Serbia': '🇷🇸', 'Norway': '🇳🇴', 'Sweden': '🇸🇪', 'Qatar': '🇶🇦'
-        };
+        document.addEventListener("DOMContentLoaded", function() {
+            const nombre = localStorage.getItem("prode_nombre");
+            const area = localStorage.getItem("prode_area");
 
-        const fixture = {
-            'A': [{id:'A1',e1:'México 🇲🇽',e2:'Sudáfrica 🇿🇦'},{id:'A2',e1:'EE.UU. 🇺🇸',e2:'N. Zelanda 🇳🇿'},{id:'A3',e1:'México 🇲🇽',e2:'N. Zelanda 🇳🇿'},{id:'A4',e1:'EE.UU. 🇺🇸',e2:'Sudáfrica 🇿🇦'}],
-            'B': [{id:'B1',e1:'Canadá 🇨🇦',e2:'Marruecos 🇲🇦'},{id:'B2',e1:'España 🇪🇸',e2:'Corea Sur 🇰🇷'},{id:'B3',e1:'Canadá 🇨🇦',e2:'Corea Sur 🇰🇷'},{id:'B4',e1:'España 🇪🇸',e2:'Marruecos 🇲🇦'}],
-            'C': [{id:'C1',e1:'Brasil 🇧🇷',e2:'Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿'},{id:'C2',e1:'Colombia 🇨🇴',e2:'Argelia 🇩🇿'},{id:'C3',e1:'Brasil 🇧🇷',e2:'Argelia 🇩🇿'},{id:'C4',e1:'Colombia 🇨🇴',e2:'Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿'}],
-            'D': [{id:'D1',e1:'Uruguay 🇺🇾',e2:'Polonia 🇵🇱'},{id:'D2',e1:'Italia 🇮🇹',e2:'Nigeria 🇳🇬'},{id:'D3',e1:'Uruguay 🇺🇾',e2:'Nigeria 🇳🇬'},{id:'D4',e1:'Italia 🇮🇹',e2:'Polonia 🇵🇱'}],
-            'E': [{id:'E1',e1:'Francia 🇫🇷',e2:'Australia 🇦🇺'},{id:'E2',e1:'Turquía 🇹🇷',e2:'Chile 🇨🇱'},{id:'E3',e1:'Francia 🇫🇷',e2:'Chile 🇨🇱'},{id:'E4',e1:'Turquía 🇹🇷',e2:'Australia 🇦🇺'}],
-            'F': [{id:'F1',e1:'P. Bajos 🇳🇱',e2:'Perú 🇵🇪'},{id:'F2',e1:'Suiza 🇨🇭',e2:'Senegal 🇸🇳'},{id:'F3',e1:'P. Bajos 🇳🇱',e2:'Senegal 🇸🇳'},{id:'F4',e1:'Suiza 🇨🇭',e2:'Perú 🇵🇪'}],
-            'G': [{id:'G1',e1:'Alemania 🇩🇪',e2:'Egipto 🇪🇬'},{id:'G2',e1:'Dinamarca 🇩🇰',e2:'Irán 🇮🇷'},{id:'G3',e1:'Alemania 🇩🇪',e2:'Irán 🇮🇷'},{id:'G4',e1:'Dinamarca 🇩🇰',e2:'Egipto 🇪🇬'}],
-            'H': [{id:'H1',e1:'Portugal 🇵🇹',e2:'Ghana 🇬🇭'},{id:'H2',e1:'Bélgica 🇧🇪',e2:'Honduras 🇭🇳'},{id:'H3',e1:'Portugal 🇵🇹',e2:'Honduras 🇭🇳'},{id:'H4',e1:'Bélgica 🇧🇪',e2:'Ghana 🇬🇭'}],
-            'I': [{id:'I1',e1:'Croacia 🇭🇷',e2:'Camerún 🇨🇲'},{id:'I2',e1:'Hungría 🇭🇺',e2:'Jamaica 🇯🇲'},{id:'I3',e1:'Croacia 🇭🇷',e2:'Jamaica 🇯🇲'},{id:'I4',e1:'Hungría 🇭🇺',e2:'Camerún 🇨🇲'}],
-            'J': [{id:'J1',e1:'Eslovenia 🇸🇮',e2:'Paraguay 🇵🇾'},{id:'J2',e1:'Rumania 🇷🇴',e2:'Mali 🇲🇱'},{id:'J3',e1:'Eslovenia 🇸🇮',e2:'Mali 🇲🇱'},{id:'J4',e1:'Rumania 🇷🇴',e2:'Paraguay 🇵🇾'}],
-            'K': [{id:'K1',e1:'Serbia 🇷🇸',e2:'Noruega 🇳🇴'},{id:'K2',e1:'Suecia 🇸🇪',e2:'Qatar 🇶🇦'},{id:'K3',e1:'Serbia 🇷🇸',e2:'Qatar 🇶🇦'},{id:'K4',e1:'Suecia 🇸🇪',e2:'Noruega 🇳🇴'}],
-            'L': [{id:'L1',e1:'Argentina 🇦🇷',e2:'Austria 🇦🇹'},{id:'L2',e1:'Japón 🇯🇵',e2:'Ecuador 🇪🇨'},{id:'L3',e1:'Argentina 🇦🇷',e2:'Ecuador 🇪🇨'},{id:'L4',e1:'Japón 🇯🇵',e2:'Austria 🇦🇹'}]
-        };
-
-        function nombreConBandera(nombre) {
-            const emoji = banderas[nombre] || '🏳️';
-            return `${nombre} ${emoji}`;
-        }
-
-        async function renderGrupo(letra) {
-            document.querySelectorAll('.group-btn').forEach(b => b.classList.remove('active-tab'));
-            const btn = document.getElementById(`btn-gr-${letra}`);
-            if(btn) btn.classList.add('active-tab');
-            document.getElementById('grupo-titulo').innerText = `GRUPO ${letra}`;
-
-            const mContainer = document.getElementById('matches-container');
-            mContainer.innerHTML = '';
-            fixture[letra].forEach(m => {
-                mContainer.innerHTML += `
-                    <div class="match-card bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-[9px] font-black bg-blue-50 text-blue-900 px-2 py-0.5 rounded uppercase">ID ${m.id}</span>
-                        </div>
-                        <div class="grid grid-cols-3 items-center gap-1">
-                            <div class="text-center font-bold text-[10px] leading-tight text-slate-700">${m.e1}</div>
-                            <div class="flex justify-center space-x-1">
-                                <input type="number" id="gA-${m.id}" data-match="${m.e1} vs ${m.e2}" class="w-9 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
-                                <input type="number" id="gB-${m.id}" class="w-9 h-10 border-2 border-slate-100 rounded-lg text-center font-bold text-lg focus:border-blue-500 outline-none" placeholder="-">
-                            </div>
-                            <div class="text-center font-bold text-[10px] leading-tight text-slate-700">${m.e2}</div>
-                        </div>
-                    </div>`;
-            });
-
-            try {
-                const res = await fetch(scriptURL);
-                const data = await res.json();
-                const tBody = document.getElementById('tabla-body');
-                tBody.innerHTML = '';
-                data.posiciones.slice(1).forEach(row => {
-                    if(row[0] === letra) {
-                        tBody.innerHTML += `
-                            <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
-                                <td class="p-4 text-[11px] font-bold">${nombreConBandera(row[1])}</td>
-                                <td class="p-4 text-center font-normal">${row[2]}</td>
-                                <td class="p-4 text-center font-normal">${row[3]}</td>
-                                <td class="p-4 text-center text-blue-900 font-black">${row[4]}</td>
-                            </tr>`;
-                    }
-                });
-            } catch (e) { console.error(e); }
-        }
-
-        async function savePredictions() {
-            const email = document.getElementById('userEmail').value;
-            if(!email) return showToast("Escribe tu email primero", "bg-red-500");
-            const inputs = document.querySelectorAll('#matches-container input[id^="gA-"]');
-            showToast("Guardando...", "bg-blue-600");
-            for (let i = 0; i < inputs.length; i++) {
-                const idM = inputs[i].id.split('-')[1];
-                const gA = inputs[i].value;
-                const gB = document.getElementById(`gB-${idM}`).value;
-                if(gA !== "" && gB !== "") {
-                    await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ email, partido: inputs[i].dataset.match, golesA: gA, golesB: gB }) });
-                }
+            if (nombre && area) {
+                mostrarProde(nombre, area);
             }
-            showToast("¡Pronóstico guardado!", "bg-green-600");
+        });
+
+        function guardarPerfil() {
+            const nombre = document.getElementById("user-name").value.trim().toUpperCase();
+            const area = document.getElementById("user-area").value;
+
+            if (nombre.length < 5) {
+                alert("⚠️ Por favor, ingresá tu Nombre y Apellido completo.");
+                return;
+            }
+
+            localStorage.setItem("prode_nombre", nombre);
+            localStorage.setItem("prode_area", area);
+            mostrarProde(nombre, area);
         }
 
-        async function fetchRanking() {
-            try {
-                const res = await fetch(scriptURL);
-                const data = await res.json();
-                const rBody = document.getElementById('ranking-body');
-                rBody.innerHTML = '';
-                data.ranking.slice(1).forEach((row, i) => {
-                    rBody.innerHTML += `<tr class="border-b last:border-0"><td class="p-4 font-black text-blue-900 w-12 text-center text-lg">#${i+1}</td><td class="p-4 font-semibold text-slate-600 text-sm">${row[0]}</td><td class="p-4 text-right font-black text-blue-900 text-lg">${row[1]} pts</td></tr>`;
-                });
-            } catch (e) { console.error(e); }
+        function mostrarProde(nombre, area) {
+            document.getElementById("registro-usuario").classList.add("hidden");
+            document.getElementById("prode-main").classList.remove("hidden");
+            document.getElementById("display-name").innerText = nombre;
+            document.getElementById("display-area").innerText = area;
+            
+            // Aquí llamarías a la función para traer partidos
+            // fetchPartidos(); 
         }
-
-        function switchView(view) {
-            document.getElementById('view-ranking').classList.toggle('hidden', view !== 'ranking');
-            if(view === 'ranking') fetchRanking();
-        }
-
-        function showToast(msg, color) {
-            const t = document.getElementById('toast');
-            t.innerText = msg;
-            t.className = `fixed top-5 right-5 p-4 rounded-xl shadow-2xl text-white font-bold z-[100] ${color}`;
-            t.classList.remove('hidden');
-            setTimeout(() => t.classList.add('hidden'), 3000);
-        }
-
-        window.onload = () => renderGrupo('A');
     </script>
 </body>
 </html>
-
